@@ -1,0 +1,556 @@
+format_version: '2'
+name: My Project
+versions:
+  api: '1.0'
+  backend: 1.7.360
+  commit: 1e07622763d149970fd8808a8f12ff3b1e84e0d7
+  content: unknown
+  content_pack_name: unknown
+  format: '2'
+  frontend: 1.7.360
+  packs_version_avr8: 1.0.1415
+  packs_version_qtouch: unknown
+  packs_version_sam: 1.0.1622
+  version_backend: 1.7.360
+  version_frontend: ''
+board:
+  identifier: CustomBoard
+  device: ATmega328PB-AU
+details: null
+application: null
+middlewares:
+  QTOUCH_LIBRARY_0:
+    user_label: QTOUCH_LIBRARY_0
+    configuration: {}
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_Standard_Library
+    functionality: QTouch_Library
+    api: QTouch:General:Core
+    dependencies: {}
+  QTOUCH_TIMER:
+    user_label: QTOUCH_TIMER
+    configuration: {}
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_Timer
+    functionality: QTouch_Timer
+    api: QTouch:Driver:Timer
+    dependencies:
+      Timer: Timer
+  QTOUCH_NODE_3:
+    user_label: QTOUCH_NODE_3
+    configuration:
+      order: 4
+      ptc_analog_gain: '1'
+      ptc_csd: 0
+      ptc_digital_gain: '1'
+      ptc_filter_level: '16'
+      ptc_prescaler: Divide by 8
+      ptc_rsel: No Resistor
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_selfcap_node
+    functionality: QTouch_Node
+    api: QTouch:General:Node
+    dependencies:
+      QTouch Acquisition: QTOUCH_ACQUISITION
+      Y-line: PTC_0:Y/13
+      PTC: PTC_0
+  QTOUCH_NODE_1:
+    user_label: QTOUCH_NODE_1
+    configuration:
+      order: 2
+      ptc_analog_gain: '1'
+      ptc_csd: 0
+      ptc_digital_gain: '1'
+      ptc_filter_level: '16'
+      ptc_prescaler: Divide by 8
+      ptc_rsel: No Resistor
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_selfcap_node
+    functionality: QTouch_Node
+    api: QTouch:General:Node
+    dependencies:
+      QTouch Acquisition: QTOUCH_ACQUISITION
+      Y-line: PTC_0:Y/15
+      PTC: PTC_0
+  QTOUCH_NODE_0:
+    user_label: QTOUCH_NODE_0
+    configuration:
+      order: 0
+      ptc_analog_gain: '1'
+      ptc_csd: 0
+      ptc_digital_gain: '1'
+      ptc_filter_level: '16'
+      ptc_prescaler: Divide by 8
+      ptc_rsel: No Resistor
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_selfcap_node
+    functionality: QTouch_Node
+    api: QTouch:General:Node
+    dependencies:
+      QTouch Acquisition: QTOUCH_ACQUISITION
+      Y-line: PTC_0:Y/19
+      PTC: PTC_0
+  QTOUCH_NODE:
+    user_label: QTOUCH_NODE
+    configuration:
+      order: 1
+      ptc_analog_gain: '1'
+      ptc_csd: 0
+      ptc_digital_gain: '1'
+      ptc_filter_level: '16'
+      ptc_prescaler: Divide by 8
+      ptc_rsel: No Resistor
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_selfcap_node
+    functionality: QTouch_Node
+    api: QTouch:General:Node
+    dependencies:
+      QTouch Acquisition: QTOUCH_ACQUISITION
+      Y-line: PTC_0:Y/18
+      PTC: PTC_0
+  QTOUCH_NODE_2:
+    user_label: QTOUCH_NODE_2
+    configuration:
+      order: 3
+      ptc_analog_gain: '1'
+      ptc_csd: 0
+      ptc_digital_gain: '1'
+      ptc_filter_level: '16'
+      ptc_prescaler: Divide by 8
+      ptc_rsel: No Resistor
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_selfcap_node
+    functionality: QTouch_Node
+    api: QTouch:General:Node
+    dependencies:
+      QTouch Acquisition: QTOUCH_ACQUISITION
+      Y-line: PTC_0:Y/14
+      PTC: PTC_0
+  QTOUCH_SENSOR:
+    user_label: QTOUCH_SENSOR
+    configuration:
+      anti_tch_drift_rate: 5
+      anti_tch_recal_thrshld: 100 percent of Touch threshold
+      anti_touch_count: 5
+      drift_hold_time: 20
+      max_on_duration: 0
+      reburst_mode: Reburst sensors only in process of calibration / filter in / filter
+        out and AKS groups
+      tch_drift_rate: 20
+      touch_det_int: 4
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_Sensor
+    functionality: QTouch_Sensor
+    api: QTouch:General:Sensor
+    dependencies: {}
+  QTOUCH_KEY_4:
+    user_label: QTOUCH_KEY_4
+    configuration:
+      order: 4
+      radius: 30
+      touch_sensor_aks: AKS Group 1
+      touch_sensor_hysterisis: 25 percent of Sensor Threshold
+      touch_sensor_threshold: 20
+      x_position: 0
+      y_position: 0
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_Key
+    functionality: QTouch_Key
+    api: QTouch:General:Key
+    dependencies:
+      QTouch Sensor: QTOUCH_SENSOR
+      QTouch Node: QTOUCH_NODE_3
+  QTOUCH_KEY_3:
+    user_label: QTOUCH_KEY_3
+    configuration:
+      order: 3
+      radius: 30
+      touch_sensor_aks: AKS Group 1
+      touch_sensor_hysterisis: 25 percent of Sensor Threshold
+      touch_sensor_threshold: 20
+      x_position: 0
+      y_position: 0
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_Key
+    functionality: QTouch_Key
+    api: QTouch:General:Key
+    dependencies:
+      QTouch Sensor: QTOUCH_SENSOR
+      QTouch Node: QTOUCH_NODE_2
+  QTOUCH_KEY_2:
+    user_label: QTOUCH_KEY_2
+    configuration:
+      order: 2
+      radius: 30
+      touch_sensor_aks: AKS Group 1
+      touch_sensor_hysterisis: 25 percent of Sensor Threshold
+      touch_sensor_threshold: 20
+      x_position: 0
+      y_position: 0
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_Key
+    functionality: QTouch_Key
+    api: QTouch:General:Key
+    dependencies:
+      QTouch Sensor: QTOUCH_SENSOR
+      QTouch Node: QTOUCH_NODE_1
+  QTOUCH_KEY_1:
+    user_label: QTOUCH_KEY_1
+    configuration:
+      order: 1
+      radius: 30
+      touch_sensor_aks: AKS Group 1
+      touch_sensor_hysterisis: 25 percent of Sensor Threshold
+      touch_sensor_threshold: 20
+      x_position: 0
+      y_position: 0
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_Key
+    functionality: QTouch_Key
+    api: QTouch:General:Key
+    dependencies:
+      QTouch Sensor: QTOUCH_SENSOR
+      QTouch Node: QTOUCH_NODE
+  QTOUCH_KEY_0:
+    user_label: QTOUCH_KEY_0
+    configuration:
+      order: 0
+      radius: 30
+      touch_sensor_aks: AKS Group 1
+      touch_sensor_hysterisis: 25 percent of Sensor Threshold
+      touch_sensor_threshold: 20
+      x_position: 0
+      y_position: 0
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_Key
+    functionality: QTouch_Key
+    api: QTouch:General:Key
+    dependencies:
+      QTouch Sensor: QTOUCH_SENSOR
+      QTouch Node: QTOUCH_NODE_0
+  QTOUCH_SLIDER:
+    user_label: QTOUCH_SLIDER
+    configuration:
+      height: 30
+      touch_contact_min_threshold: 20
+      touch_scroller_deadband: 10percent
+      touch_scroller_hysterisis: 8
+      touch_scroller_resolution: 10 bit
+      touch_scroller_size: 5
+      touch_scroller_type: Slider
+      touch_start_key: 0
+      width: 100
+      x_position: 20
+      y_position: 40
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_Scroller
+    functionality: QTouch_Scroller
+    api: QTouch:General:Scroller
+    dependencies:
+      QTouch Key:
+      - QTOUCH_KEY_0
+      - QTOUCH_KEY_1
+      - QTOUCH_KEY_2
+      - QTOUCH_KEY_3
+      - QTOUCH_KEY_4
+  QTOUCH_BINDING:
+    user_label: QTOUCH_BINDING
+    configuration: {}
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_Binding
+    functionality: QTouch_Binding
+    api: QTouch:General:Binding
+    dependencies: {}
+  QTOUCH_REMOVE_BINDING_0:
+    user_label: QTOUCH_REMOVE_BINDING_0
+    configuration: {}
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_Remove_Binding
+    functionality: QTouch_Remove_Binding
+    api: QTouch:General:RemoveBinding
+    dependencies: {}
+  QTOUCH_ACQUISITION:
+    user_label: QTOUCH_ACQUISITION
+    configuration:
+      acquisition_frequency: FREQ_SEL_0
+      ptc_acq_tune: Manual user setting of Prescaler, Charge share delay & Series
+        resistor
+      ptc_measurement_time: 20
+      ptc_sensor_type: Selfcap
+    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_Acquisition_-_Manual_Tuning
+    functionality: QTouch_Acquisition
+    api: QTouch:General:Acquisition
+    dependencies:
+      QTouch Timer: QTOUCH_TIMER
+      QTouch Binding: QTOUCH_BINDING
+drivers:
+  CPU:
+    user_label: CPU
+    definition: 'Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::CPU::driver_config_definition::SYSCTRL::Drivers:SYSCTRL:'
+    functionality: System
+    api: 'Drivers:SYSCTRL:'
+    configuration:
+      async_input_speed: 32768
+      clkadc_oscillator: Input clock
+      clkasy_oscillator: Async input clock
+      clkcpu_oscillator: Input clock
+      clkio_oscillator: Input clock
+      clkptc_oscillator: Input clock
+      cpu_clock_source: CLKcpu
+      cpu_sreg_i: true
+      enable_async_input: false
+      enable_clkadc: true
+      enable_clkasy: false
+      enable_clkcpu: true
+      enable_clkio: true
+      enable_clkptc: true
+      enable_core_clock: true
+      enable_input: true
+      input_speed: 8000000
+      pm_ivsel: Interrupt vector placed at the beginning of main FLASH memory
+      pm_pud: false
+      pm_se: false
+      pm_sm: Idle
+      prescaler_divider: '1'
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: Core
+          input: Core
+          external: false
+          external_frequency: 0
+        configuration: {}
+  PTC_0:
+    user_label: PTC_0
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::PTC::driver_config_definition::PTC::Drivers:PTC:Init
+    functionality: PTC
+    api: Drivers:PTC:Init
+    configuration: {}
+    optional_signals:
+    - identifier: PTC_0:Y/13
+      pad: PD5
+      mode: Enabled
+      configuration: null
+      definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::optional_signal_definition::PTC.Y.13
+      name: PTC/Y/13
+      label: Y/13
+    - identifier: PTC_0:Y/14
+      pad: PD6
+      mode: Enabled
+      configuration: null
+      definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::optional_signal_definition::PTC.Y.14
+      name: PTC/Y/14
+      label: Y/14
+    - identifier: PTC_0:Y/15
+      pad: PD7
+      mode: Enabled
+      configuration: null
+      definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::optional_signal_definition::PTC.Y.15
+      name: PTC/Y/15
+      label: Y/15
+    - identifier: PTC_0:Y/18
+      pad: PB0
+      mode: Enabled
+      configuration: null
+      definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::optional_signal_definition::PTC.Y.18
+      name: PTC/Y/18
+      label: Y/18
+    - identifier: PTC_0:Y/19
+      pad: PB1
+      mode: Enabled
+      configuration: null
+      definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::optional_signal_definition::PTC.Y.19
+      name: PTC/Y/19
+      label: Y/19
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: PTC
+          input: CLKptc
+          external: false
+          external_frequency: 0
+        configuration:
+          ptc_clock_source: CLKptc
+  Timer:
+    user_label: Timer
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::TC0::driver_config_definition::TC8.Mode.2.CTC::Drivers:TC8:Init
+    functionality: Timer
+    api: Drivers:TC8:Init
+    configuration:
+      inc_isr_harness: true
+      tc8_coma: Normal port operation, OCA disconnected
+      tc8_comb: Normal port operation, OCB disconnected
+      tc8_cs: IO clock divided by 1024
+      tc8_ociea: true
+      tc8_ocieb: false
+      tc8_ocra: 0
+      tc8_ocrb: 0
+      tc8_psrasy: false
+      tc8_psrsync: false
+      tc8_toie: false
+      tc8_tsm: false
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: TC8
+          input: CLKio
+          external: false
+          external_frequency: 0
+        configuration:
+          tc8_clock_source: CLKio
+  TIMER_0:
+    user_label: TIMER_0
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::TC1::driver_config_definition::TC16.Mode.0.Normal::Drivers:TC16:Init
+    functionality: Timer
+    api: Drivers:TC16:Init
+    configuration:
+      inc_isr_harness: true
+      tc16_coma: Normal port operation, OCA disconnected
+      tc16_comb: Normal port operation, OCB disconnected
+      tc16_cs: IO clock divided by 8
+      tc16_ices: Falling edge will trigger input capture
+      tc16_icie: false
+      tc16_icnc: false
+      tc16_icr: 0
+      tc16_ociea: false
+      tc16_ocieb: false
+      tc16_orca: 0
+      tc16_orcb: 0
+      tc16_psrasy: false
+      tc16_psrsync: false
+      tc16_toie: true
+      tc16_tsm: false
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: TC16
+          input: CLKio
+          external: false
+          external_frequency: 0
+        configuration:
+          tc16_clock_source: CLKio
+  USART_0:
+    user_label: USART_0
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::USART1::driver_config_definition::Async.Polled.Mode::Drivers:USART:Basic
+    functionality: USART
+    api: Drivers:USART:Basic
+    configuration:
+      printf_support: true
+      usart_baud_rate: 9600
+      usart_mpcm: false
+      usart_rxcie: true
+      usart_rxen: true
+      usart_rxsie: false
+      usart_sfde: false
+      usart_txcie: false
+      usart_txen: true
+      usart_ucpha: Sample data on the first edge of XCK
+      usart_ucpol: false
+      usart_ucsz: 8-bit
+      usart_udord: MSB is transmitted first
+      usart_udrie: false
+      usart_upm: Disabled
+      usart_usbs: 1-bit
+    optional_signals: []
+    variant:
+      specification: UMSEL=0
+      required_signals:
+      - name: USART1/RXD
+        pad: PB4
+        label: RXD
+      - name: USART1/TXD
+        pad: PB3
+        label: TXD
+    clocks:
+      domain_group:
+        nodes:
+        - name: USART
+          input: CLKio
+          external: false
+          external_frequency: 0
+        configuration:
+          usart_clock_source: CLKio
+pads:
+  LED2:
+    name: PD3
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PD3
+    mode: Digital output
+    user_label: LED2
+    configuration: null
+  LED1:
+    name: PE0
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PE0
+    mode: Digital output
+    user_label: LED1
+    configuration: null
+  PD5:
+    name: PD5
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PD5
+    mode: Analog
+    user_label: PD5
+    configuration: null
+  PD6:
+    name: PD6
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PD6
+    mode: Analog
+    user_label: PD6
+    configuration: null
+  PD7:
+    name: PD7
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PD7
+    mode: Analog
+    user_label: PD7
+    configuration: null
+  PB0:
+    name: PB0
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PB0
+    mode: Analog
+    user_label: PB0
+    configuration: null
+  PB1:
+    name: PB1
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PB1
+    mode: Analog
+    user_label: PB1
+    configuration: null
+  PB3:
+    name: PB3
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PB3
+    mode: Digital output
+    user_label: PB3
+    configuration: null
+  PB4:
+    name: PB4
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PB4
+    mode: Digital input
+    user_label: PB4
+    configuration: null
+  LED7:
+    name: PC0
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PC0
+    mode: Digital output
+    user_label: LED7
+    configuration: null
+  LED6:
+    name: PC1
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PC1
+    mode: Digital output
+    user_label: LED6
+    configuration: null
+  LED5:
+    name: PC2
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PC2
+    mode: Digital output
+    user_label: LED5
+    configuration: null
+  LED4:
+    name: PC3
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PC3
+    mode: Digital output
+    user_label: LED4
+    configuration: null
+  LED3:
+    name: PD2
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PD2
+    mode: Digital output
+    user_label: LED3
+    configuration: null
+toolchain_options:
+- definition:
+    identifier: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::environment_definition::All:Atmel.Studio:7.0.0
+  configuration:
+    compiler_config:
+      avrgcc_compiler_miscellaneous_OtherFlags: -std=gnu99
+    linker_config:
+      avrgcc_linker_miscellaneous_LinkerFlags: ''
