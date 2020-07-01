@@ -24,3 +24,5 @@ src\tc8.c
 
 src\usart_basic.c
 
+utils\custom_stuff.c
+

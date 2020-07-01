@@ -68,7 +68,8 @@ C_SRCS +=  \
 ../src/driver_init.c \
 ../src/tc16.c \
 ../src/tc8.c \
-../src/usart_basic.c
+../src/usart_basic.c \
+../utils/custom_stuff.c
 
 
 PREPROCESSING_SRCS +=  \
@@ -89,7 +90,8 @@ src/driver_init.o \
 src/protected_io.o \
 src/tc16.o \
 src/tc8.o \
-src/usart_basic.o
+src/usart_basic.o \
+utils/custom_stuff.o
 
 OBJS_AS_ARGS +=  \
 atmel_start.o \
@@ -102,7 +104,8 @@ src/driver_init.o \
 src/protected_io.o \
 src/tc16.o \
 src/tc8.o \
-src/usart_basic.o
+src/usart_basic.o \
+utils/custom_stuff.o
 
 C_DEPS +=  \
 atmel_start.d \
@@ -115,7 +118,8 @@ src/driver_init.d \
 src/protected_io.d \
 src/tc16.d \
 src/tc8.d \
-src/usart_basic.d
+src/usart_basic.d \
+utils/custom_stuff.d
 
 C_DEPS_AS_ARGS +=  \
 atmel_start.d \
@@ -128,7 +132,8 @@ src/driver_init.d \
 src/protected_io.d \
 src/tc16.d \
 src/tc8.d \
-src/usart_basic.d
+src/usart_basic.d \
+utils/custom_stuff.d
 
 OUTPUT_FILE_PATH +=BusinessCard_Rev_0.elf
 
@@ -208,6 +213,13 @@ src/tc8.o: ../src/tc8.c
 	
 
 src/usart_basic.o: ../src/usart_basic.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../examples/include" -I"../include" -I"../utils" -I"../utils/assembler" -I".." -I"../documentation" -I"../qtouch" -I"../qtouch/datastreamer" -I"../qtouch/include" -I"../Config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.4.351\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328pb -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.4.351\gcc\dev\atmega328pb" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+utils/custom_stuff.o: ../utils/custom_stuff.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../examples/include" -I"../include" -I"../utils" -I"../utils/assembler" -I".." -I"../documentation" -I"../qtouch" -I"../qtouch/datastreamer" -I"../qtouch/include" -I"../Config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.4.351\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328pb -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.4.351\gcc\dev\atmega328pb" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
