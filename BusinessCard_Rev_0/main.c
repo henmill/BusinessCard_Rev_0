@@ -27,39 +27,54 @@ int main(void)
 	atmel_start_init();
 	
 	// light up the leds sequentially on startup
-	LED1_set_level(true); _delay_ms(100);
-	LED2_set_level(true); _delay_ms(100);
-	LED3_set_level(true); _delay_ms(100);
-	LED4_set_level(true); _delay_ms(100);
-	LED5_set_level(true); _delay_ms(100);
-	LED6_set_level(true); _delay_ms(100);
-	LED7_set_level(true); _delay_ms(100); _delay_ms(200);
+	LED1_set_level(true); _delay_ms(60); LED1_set_level(false);
+	LED2_set_level(true); _delay_ms(60); LED2_set_level(false);
+	LED3_set_level(true); _delay_ms(60); LED3_set_level(false);
+	LED4_set_level(true); _delay_ms(60); LED4_set_level(false);
+	LED5_set_level(true); _delay_ms(60); LED5_set_level(false);
+	LED6_set_level(true); _delay_ms(60); LED6_set_level(false);
+	LED7_set_level(true); _delay_ms(60); LED7_set_level(false);
+	LED6_set_level(true); _delay_ms(60); LED6_set_level(false);
+	LED5_set_level(true); _delay_ms(60); LED5_set_level(false);
+	LED4_set_level(true); _delay_ms(60); LED4_set_level(false);
+	LED3_set_level(true); _delay_ms(60); LED3_set_level(false);
+	LED2_set_level(true); _delay_ms(60); LED2_set_level(false);
+	LED1_set_level(true); _delay_ms(60); LED1_set_level(false);
 	
-	LED1_set_level(false);LED2_set_level(false);LED3_set_level(false);LED4_set_level(false);LED5_set_level(false);LED6_set_level(false);LED7_set_level(false);
-	
+	//sleep_enter();
+	//SLEEP_MODE_PWR_SAVE  --> PTC can wake from power save mode according to datasheet
+	// look into PCINT (pin change) interrupt as method of waking
 	//t1cnt = 0;
 
 	/* Replace with your application code */
 	while (1) 
 	{
 		// HAPPY WITH THIS, next investigate timer based to save battery
+		
 		touch_process();
 		
-		if(measurement_done_touch){
-			measurement_done_touch = 0;
+		if(t1callbackflag == 1)
+		{
+			t1callbackflag = 0;			
 			
-			slider_status = get_scroller_state(0);
-			scroll_val = get_scroller_position(0);
-			
-			if(slider_status != 0u){		//if slider has anything going on, process it
-				slider_to_state();
+			if(measurement_done_touch){
+				measurement_done_touch = 0;
+				
+				slider_status = get_scroller_state(0);
+				scroll_val = get_scroller_position(0);
+				
+				if(slider_status != 0u){		//if slider has anything going on, process it
+					slider_to_state();
+				}
+				else{						//otherwise, turn off LEDs
+					LED_state = 0;
+				}
+				
+				state_to_LED(LED_state);	//decode slider position to LEDs
 			}
-			else{						//otherwise, turn off LEDs
-				LED_state = 0;
-			}
 			
-			state_to_LED(LED_state);	//decode slider position to LEDs	
-		}
+		}		
+		
 	}
 }
 

@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "BusinessCard_Rev_0", "BusinessCard_Rev_0\BusinessCard_Rev_0.cproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
 EndProject
-Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "ATmega328PB_XPlainedMini_rev0", "..\ATmega328PB_XPlainedMini_rev0\ATmega328PB_XPlainedMini_rev0_17\ATmega328PB_XPlainedMini_rev0.cproj", "{6DD6404E-33B4-4EFD-8970-7BFC117FA142}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR
@@ -17,10 +15,6 @@ Global
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|AVR.Build.0 = Debug|AVR
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.ActiveCfg = Release|AVR
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.Build.0 = Release|AVR
-		{6DD6404E-33B4-4EFD-8970-7BFC117FA142}.Debug|AVR.ActiveCfg = Debug|AVR
-		{6DD6404E-33B4-4EFD-8970-7BFC117FA142}.Debug|AVR.Build.0 = Debug|AVR
-		{6DD6404E-33B4-4EFD-8970-7BFC117FA142}.Release|AVR.ActiveCfg = Release|AVR
-		{6DD6404E-33B4-4EFD-8970-7BFC117FA142}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
