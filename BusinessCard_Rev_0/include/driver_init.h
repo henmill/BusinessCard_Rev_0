@@ -45,9 +45,7 @@
 
 #include <tc8.h>
 
-#include <tc16.h>
-
-#include <usart_basic.h>
+#include <tc8.h>
 
 #ifdef __cplusplus
 extern "C" {

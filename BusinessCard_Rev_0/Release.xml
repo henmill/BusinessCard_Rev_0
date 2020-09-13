@@ -48,12 +48,12 @@
   <avrgcc.assembler.general.IncludePaths>
     <ListValues>
       <Value>../Config</Value>
-      <Value>../examples/include</Value>
       <Value>../include</Value>
       <Value>../utils</Value>
       <Value>../utils/assembler</Value>
       <Value>../</Value>
       <Value>../documentation</Value>
+      <Value>../examples/include</Value>
       <Value>../qtouch</Value>
       <Value>../qtouch/include</Value>
       <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.4.351\include</Value>

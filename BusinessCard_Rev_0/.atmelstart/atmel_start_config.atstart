@@ -2,16 +2,16 @@ format_version: '2'
 name: My Project
 versions:
   api: '1.0'
-  backend: 1.7.360
-  commit: 1e07622763d149970fd8808a8f12ff3b1e84e0d7
+  backend: 1.7.391
+  commit: d4b7e9f65a05ebffcb0986e4060cb8c0a313e69a
   content: unknown
   content_pack_name: unknown
   format: '2'
-  frontend: 1.7.360
-  packs_version_avr8: 1.0.1415
+  frontend: 1.7.391
+  packs_version_avr8: 1.0.1421
   packs_version_qtouch: unknown
-  packs_version_sam: 1.0.1622
-  version_backend: 1.7.360
+  packs_version_sam: 1.0.1658
+  version_backend: 1.7.391
   version_frontend: ''
 board:
   identifier: CustomBoard
@@ -246,20 +246,13 @@ middlewares:
     functionality: QTouch_Binding
     api: QTouch:General:Binding
     dependencies: {}
-  QTOUCH_REMOVE_BINDING_0:
-    user_label: QTOUCH_REMOVE_BINDING_0
-    configuration: {}
-    definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_Remove_Binding
-    functionality: QTouch_Remove_Binding
-    api: QTouch:General:RemoveBinding
-    dependencies: {}
   QTOUCH_ACQUISITION:
     user_label: QTOUCH_ACQUISITION
     configuration:
       acquisition_frequency: FREQ_SEL_0
       ptc_acq_tune: Manual user setting of Prescaler, Charge share delay & Series
         resistor
-      ptc_measurement_time: 20
+      ptc_measurement_time: 30
       ptc_sensor_type: Selfcap
     definition: Atmel:QTOUCH_MEGA_AVR:1.0.0::QTouch_Acquisition_-_Manual_Tuning
     functionality: QTouch_Acquisition
@@ -293,8 +286,8 @@ drivers:
       input_speed: 8000000
       pm_ivsel: Interrupt vector placed at the beginning of main FLASH memory
       pm_pud: false
-      pm_se: false
-      pm_sm: Idle
+      pm_se: true
+      pm_sm: Power Save
       prescaler_divider: '1'
     optional_signals: []
     variant: null
@@ -374,7 +367,7 @@ drivers:
       tc8_ocrb: 0
       tc8_psrasy: false
       tc8_psrsync: false
-      tc8_toie: false
+      tc8_toie: true
       tc8_tsm: false
     optional_signals: []
     variant: null
@@ -387,80 +380,36 @@ drivers:
           external_frequency: 0
         configuration:
           tc8_clock_source: CLKio
-  TIMER_0:
-    user_label: TIMER_0
-    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::TC1::driver_config_definition::TC16.Mode.0.Normal::Drivers:TC16:Init
+  TIMER_2:
+    user_label: TIMER_2
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::TC2::driver_config_definition::TC8.Mode.0.Normal::Drivers:TC8:Init
     functionality: Timer
-    api: Drivers:TC16:Init
+    api: Drivers:TC8:Init
     configuration:
       inc_isr_harness: true
-      tc16_coma: Normal port operation, OCA disconnected
-      tc16_comb: Normal port operation, OCB disconnected
-      tc16_cs: IO clock divided by 8
-      tc16_ices: Falling edge will trigger input capture
-      tc16_icie: false
-      tc16_icnc: false
-      tc16_icr: 0
-      tc16_ociea: false
-      tc16_ocieb: false
-      tc16_orca: 0
-      tc16_orcb: 0
-      tc16_psrasy: false
-      tc16_psrsync: false
-      tc16_toie: true
-      tc16_tsm: false
+      tc8_async_exclk: false
+      tc8_coma: Normal port operation, OCA disconnected
+      tc8_comb: Normal port operation, OCB disconnected
+      tc8_cs: IO clock divided by 1024
+      tc8_ociea: false
+      tc8_ocieb: false
+      tc8_ocra: 0
+      tc8_ocrb: 0
+      tc8_psrasy: false
+      tc8_psrsync: false
+      tc8_toie: true
+      tc8_tsm: false
     optional_signals: []
     variant: null
     clocks:
       domain_group:
         nodes:
-        - name: TC16
+        - name: TC2
           input: CLKio
           external: false
           external_frequency: 0
         configuration:
-          tc16_clock_source: CLKio
-  USART_0:
-    user_label: USART_0
-    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::USART1::driver_config_definition::Async.Polled.Mode::Drivers:USART:Basic
-    functionality: USART
-    api: Drivers:USART:Basic
-    configuration:
-      printf_support: true
-      usart_baud_rate: 9600
-      usart_mpcm: false
-      usart_rxcie: true
-      usart_rxen: true
-      usart_rxsie: false
-      usart_sfde: false
-      usart_txcie: false
-      usart_txen: true
-      usart_ucpha: Sample data on the first edge of XCK
-      usart_ucpol: false
-      usart_ucsz: 8-bit
-      usart_udord: MSB is transmitted first
-      usart_udrie: false
-      usart_upm: Disabled
-      usart_usbs: 1-bit
-    optional_signals: []
-    variant:
-      specification: UMSEL=0
-      required_signals:
-      - name: USART1/RXD
-        pad: PB4
-        label: RXD
-      - name: USART1/TXD
-        pad: PB3
-        label: TXD
-    clocks:
-      domain_group:
-        nodes:
-        - name: USART
-          input: CLKio
-          external: false
-          external_frequency: 0
-        configuration:
-          usart_clock_source: CLKio
+          tc2_clock_source: CLKio
 pads:
   LED2:
     name: PD3
@@ -468,12 +417,40 @@ pads:
     mode: Digital output
     user_label: LED2
     configuration: null
+  PD4:
+    name: PD4
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PD4
+    mode: Digital input
+    user_label: PD4
+    configuration:
+      pad_pull_config: Pull-up
   LED1:
     name: PE0
     definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PE0
     mode: Digital output
     user_label: LED1
     configuration: null
+  PE1:
+    name: PE1
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PE1
+    mode: Digital input
+    user_label: PE1
+    configuration:
+      pad_pull_config: Pull-up
+  PB6:
+    name: PB6
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PB6
+    mode: Digital input
+    user_label: PB6
+    configuration:
+      pad_pull_config: Pull-up
+  PB7:
+    name: PB7
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PB7
+    mode: Digital input
+    user_label: PB7
+    configuration:
+      pad_pull_config: Pull-up
   PD5:
     name: PD5
     definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PD5
@@ -504,18 +481,48 @@ pads:
     mode: Analog
     user_label: PB1
     configuration: null
+  PB2:
+    name: PB2
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PB2
+    mode: Digital input
+    user_label: PB2
+    configuration:
+      pad_pull_config: Pull-up
   PB3:
     name: PB3
     definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PB3
-    mode: Digital output
+    mode: Digital input
     user_label: PB3
-    configuration: null
+    configuration:
+      pad_pull_config: Pull-up
   PB4:
     name: PB4
     definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PB4
     mode: Digital input
     user_label: PB4
-    configuration: null
+    configuration:
+      pad_pull_config: Pull-up
+  PB5:
+    name: PB5
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PB5
+    mode: Digital input
+    user_label: PB5
+    configuration:
+      pad_pull_config: Pull-up
+  PE2:
+    name: PE2
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PE2
+    mode: Digital input
+    user_label: PE2
+    configuration:
+      pad_pull_config: Pull-up
+  PE3:
+    name: PE3
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PE3
+    mode: Digital input
+    user_label: PE3
+    configuration:
+      pad_pull_config: Pull-up
   LED7:
     name: PC0
     definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PC0
@@ -540,6 +547,34 @@ pads:
     mode: Digital output
     user_label: LED4
     configuration: null
+  PC4:
+    name: PC4
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PC4
+    mode: Digital input
+    user_label: PC4
+    configuration:
+      pad_pull_config: Pull-up
+  PC5:
+    name: PC5
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PC5
+    mode: Digital input
+    user_label: PC5
+    configuration:
+      pad_pull_config: Pull-up
+  PD0:
+    name: PD0
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PD0
+    mode: Digital input
+    user_label: PD0
+    configuration:
+      pad_pull_config: Pull-up
+  PD1:
+    name: PD1
+    definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PD1
+    mode: Digital input
+    user_label: PD1
+    configuration:
+      pad_pull_config: Pull-up
   LED3:
     name: PD2
     definition: Atmel:ATMega328PB_drivers:1.0.0::ATmega328PB-AU::pad::PD2

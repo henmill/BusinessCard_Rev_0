@@ -42,15 +42,44 @@ void Timer_initialization(void)
 	Timer_init();
 }
 
-void TIMER_0_initialization(void)
+void TIMER_2_initialization(void)
 {
 
-	TIMER_0_init();
+	TIMER_2_init();
 }
 
-/* configure pins and initialize registers */
-void USART_0_initialization(void)
+/**
+ * \brief System initialization
+ */
+void system_init()
 {
+	mcu_init();
+
+	/* PORT setting on PB2 */
+
+	// Set pin direction to input
+	PB2_set_dir(PORT_DIR_IN);
+
+	PB2_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_UP);
+
+	/* PORT setting on PB3 */
+
+	// Set pin direction to input
+	PB3_set_dir(PORT_DIR_IN);
+
+	PB3_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_UP);
+
+	/* PORT setting on PB4 */
 
 	// Set pin direction to input
 	PB4_set_dir(PORT_DIR_IN);
@@ -60,27 +89,43 @@ void USART_0_initialization(void)
 	    // <id> pad_pull_config
 	    // <PORT_PULL_OFF"> Off
 	    // <PORT_PULL_UP"> Pull-up
-	    PORT_PULL_OFF);
+	    PORT_PULL_UP);
 
-	// Set pin direction to output
-	PB3_set_dir(PORT_DIR_OUT);
+	/* PORT setting on PB5 */
 
-	PB3_set_level(
-	    // <y> Initial level
-	    // <id> pad_initial_level
-	    // <false"> Low
-	    // <true"> High
-	    false);
+	// Set pin direction to input
+	PB5_set_dir(PORT_DIR_IN);
 
-	USART_0_init();
-}
+	PB5_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_UP);
 
-/**
- * \brief System initialization
- */
-void system_init()
-{
-	mcu_init();
+	/* PORT setting on PB6 */
+
+	// Set pin direction to input
+	PB6_set_dir(PORT_DIR_IN);
+
+	PB6_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_UP);
+
+	/* PORT setting on PB7 */
+
+	// Set pin direction to input
+	PB7_set_dir(PORT_DIR_IN);
+
+	PB7_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_UP);
 
 	/* PORT setting on PC0 */
 
@@ -130,6 +175,54 @@ void system_init()
 	    // <true"> High
 	    false);
 
+	/* PORT setting on PC4 */
+
+	// Set pin direction to input
+	PC4_set_dir(PORT_DIR_IN);
+
+	PC4_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_UP);
+
+	/* PORT setting on PC5 */
+
+	// Set pin direction to input
+	PC5_set_dir(PORT_DIR_IN);
+
+	PC5_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_UP);
+
+	/* PORT setting on PD0 */
+
+	// Set pin direction to input
+	PD0_set_dir(PORT_DIR_IN);
+
+	PD0_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_UP);
+
+	/* PORT setting on PD1 */
+
+	// Set pin direction to input
+	PD1_set_dir(PORT_DIR_IN);
+
+	PD1_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_UP);
+
 	/* PORT setting on PD2 */
 
 	// Set pin direction to output
@@ -154,6 +247,18 @@ void system_init()
 	    // <true"> High
 	    false);
 
+	/* PORT setting on PD4 */
+
+	// Set pin direction to input
+	PD4_set_dir(PORT_DIR_IN);
+
+	PD4_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_UP);
+
 	/* PORT setting on PE0 */
 
 	// Set pin direction to output
@@ -166,11 +271,45 @@ void system_init()
 	    // <true"> High
 	    false);
 
+	/* PORT setting on PE1 */
+
+	// Set pin direction to input
+	PE1_set_dir(PORT_DIR_IN);
+
+	PE1_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_UP);
+
+	/* PORT setting on PE2 */
+
+	// Set pin direction to input
+	PE2_set_dir(PORT_DIR_IN);
+
+	PE2_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_UP);
+
+	/* PORT setting on PE3 */
+
+	// Set pin direction to input
+	PE3_set_dir(PORT_DIR_IN);
+
+	PE3_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_UP);
+
 	sysctrl_init();
 
 	Timer_initialization();
 
-	TIMER_0_initialization();
-
-	USART_0_initialization();
+	TIMER_2_initialization();
 }

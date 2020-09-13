@@ -35,23 +35,30 @@
 
 #include <driver_init.h>
 #include <compiler.h>
-
-volatile uint8_t t1callbackflag;
+#include <util/delay.h>
 
 ISR(TIMER0_COMPA_vect)
 {
-
+	
 	mega_touch_timer();
 
 	/* Clear the timer flag */
 	TIFR0 |= OCF0A;
 }
 
-ISR(TIMER1_OVF_vect)
-{
+//ISR(TIMER1_OVF_vect)
+//{
+//
+	///* Insert your TIMER_0 timer overflow interrupt handling code here */
+	//// ~T1 prescaler = 8 -> 1MHz clock x 16bit timer overflow = 65.535ms overflow
+	//// ~T1 prescaler = 1 -> 8MHz clock x 16bit timer overflow = 8.192ms overflow
+	//t1callbackflag = 1;
+	//
+//}
 
-	/* Insert your TIMER_0 timer overflow interrupt handling code here */
-	// ~T1 prescaler = 8 -> 1MHz clock x 16bit timer overflow = 65.535ms overflow
-	t1callbackflag = 1;
-	
+ISR(TIMER2_OVF_vect)
+{
+	// ~T2 prescaler = 1024 -> 8,000,000 / 1024 = 7812.5kHz -> 1/7812.5kHz = 128us clock x 8bit timer overflow = 32.64ms overflow
+		
+	//t2callbackflag = 1;	
 }

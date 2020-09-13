@@ -20,9 +20,8 @@ utils/custom_stuff.d utils/custom_stuff.o: ../utils/custom_stuff.c \
  ../Config/clock_config.h ../include/port.h ../include/atmel_start_pins.h \
  ../include/sysctrl.h ../utils/atomic.h ../include/protected_io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sleep.h \
- ../include/tc8.h ../include/tc16.h ../include/usart_basic.h \
- ../include/atmel_start_pins.h ../qtouch/touch.h \
- ../qtouch/include/touch_api_ptc.h \
+ ../include/tc8.h ../include/tc16.h ../include/atmel_start_pins.h \
+ ../qtouch/touch.h ../qtouch/include/touch_api_ptc.h \
  ../qtouch/include/qtm_common_components_api.h \
  ../qtouch/include/qtm_binding_layer_0x0005_api.h \
  ../qtouch/include/qtm_acq_m328pb_0x0001_api.h \
@@ -88,8 +87,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../include/tc8.h:
 
 ../include/tc16.h:
-
-../include/usart_basic.h:
 
 ../include/atmel_start_pins.h:
 

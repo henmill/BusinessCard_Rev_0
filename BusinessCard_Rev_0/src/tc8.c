@@ -54,11 +54,44 @@ int8_t Timer_init()
 
 	TIMSK0 = 0 << OCIE0B   /* Output Compare B Match Interrupt Enable: disabled */
 	         | 1 << OCIE0A /* Output Compare A Match Interrupt Enable: enabled */
-	         | 0 << TOIE0; /* Overflow Interrupt Enable: disabled */
+	         | 1 << TOIE0; /* Overflow Interrupt Enable: enabled */
 
 	// OCR0A = 0x0; /* Output compare A: 0x0 */
 
 	// OCR0B = 0x0; /* Output compare B: 0x0 */
+
+	// GTCCR = 0 << TSM /* Timer/Counter Synchronization Mode: disabled */
+	//		 | 0 << PSRASY /* Prescaler Reset Timer/Counter2: disabled */
+	//		 | 0 << PSRSYNC; /* Prescaler Reset: disabled */
+
+	return 0;
+}
+
+/**
+ * \brief Initialize TIMER_2 interface
+ *
+ * \return Initialization status.
+ */
+int8_t TIMER_2_init()
+{
+
+	/* Enable TC2 */
+	PRR0 &= ~(1 << PRTIM2);
+
+	// TCCR2A = (0 << COM2A1) | (0 << COM2A0) /* Normal port operation, OCA disconnected */
+	//		 | (0 << COM2B1) | (0 << COM2B0) /* Normal port operation, OCB disconnected */
+	//		 | (0 << WGM21) | (0 << WGM20); /* TC8 Mode 0 Normal */
+
+	TCCR2B = 0                                          /* TC8 Mode 0 Normal */
+	         | (1 << CS22) | (1 << CS21) | (1 << CS20); /* IO clock divided by 1024 */
+
+	TIMSK2 = 0 << OCIE2B   /* Output Compare B Match Interrupt Enable: disabled */
+	         | 0 << OCIE2A /* Output Compare A Match Interrupt Enable: disabled */
+	         | 1 << TOIE2; /* Overflow Interrupt Enable: enabled */
+
+	// OCR2A = 0x0; /* Output compare A: 0x0 */
+
+	// OCR2B = 0x0; /* Output compare B: 0x0 */
 
 	// GTCCR = 0 << TSM /* Timer/Counter Synchronization Mode: disabled */
 	//		 | 0 << PSRASY /* Prescaler Reset Timer/Counter2: disabled */

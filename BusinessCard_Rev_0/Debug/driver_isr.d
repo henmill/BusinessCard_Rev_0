@@ -20,14 +20,7 @@ driver_isr.d driver_isr.o: .././driver_isr.c ../include/driver_init.h \
  ../Config/clock_config.h ../include/port.h ../include/atmel_start_pins.h \
  ../include/sysctrl.h ../utils/atomic.h ../include/protected_io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sleep.h \
- ../include/tc8.h ../include/tc16.h ../include/usart_basic.h \
- ../atmel_start.h ../include/driver_init.h ../include/atmel_start_pins.h \
- ../qtouch/touch.h ../qtouch/include/touch_api_ptc.h \
- ../qtouch/include/qtm_common_components_api.h \
- ../qtouch/include/qtm_binding_layer_0x0005_api.h \
- ../qtouch/include/qtm_acq_m328pb_0x0001_api.h \
- ../qtouch/include/qtm_touch_key_0x0002_api.h \
- ../qtouch/include/qtm_scroller_0x000b_api.h
+ ../include/tc8.h ../include/tc16.h
 
 ../include/driver_init.h:
 
@@ -84,25 +77,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../include/tc8.h:
 
 ../include/tc16.h:
-
-../include/usart_basic.h:
-
-../atmel_start.h:
-
-../include/driver_init.h:
-
-../include/atmel_start_pins.h:
-
-../qtouch/touch.h:
-
-../qtouch/include/touch_api_ptc.h:
-
-../qtouch/include/qtm_common_components_api.h:
-
-../qtouch/include/qtm_binding_layer_0x0005_api.h:
-
-../qtouch/include/qtm_acq_m328pb_0x0001_api.h:
-
-../qtouch/include/qtm_touch_key_0x0002_api.h:
-
-../qtouch/include/qtm_scroller_0x000b_api.h:
