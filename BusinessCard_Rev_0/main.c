@@ -66,7 +66,7 @@ int main(void)
 	LED1_set_level(true); _delay_ms(60); LED1_set_level(false);
 	
 
-	/* Replace with your application code */
+	/* * */
 	while (1) 
 	{
 	
