@@ -1,6 +1,6 @@
 # BusinessCard_Rev_0
 
-Firmware for Atmega32u4 for a simple pcb touch slider interactive business card
+Firmware for Atmega328PB for a simple pcb touch slider interactive business card
 
 Project is an Atmel Studio project "solution" configured with Atmel Start, for easy set up and interface of touch slider
 
